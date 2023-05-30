@@ -14,9 +14,7 @@ config ZMK_BLE
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
-endif
 
-if SHIELD_BAD_WINGS_DONGLE || SHIELD_BAD_WINGS_MAIN
 config ZMK_SPLIT
     default y
 
