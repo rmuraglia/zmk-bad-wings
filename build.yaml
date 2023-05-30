@@ -1,3 +1,5 @@
 include:
   - board: seeeduino_xiao_ble
-    shield: bad_wings_slim
+    shield: bad_wings_main
+  - board: raytack_mdbt50q_rx
+    shield: bad_wings_dongle
