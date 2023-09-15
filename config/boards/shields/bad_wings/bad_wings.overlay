@@ -1,9 +1,5 @@
 #include "bad_wings.dtsi"
 
-&default_transform {
-  col-offset = <1>;
-};
-
 &xiao_serial { status = "disabled"; };
 
 &xiao_spi {
