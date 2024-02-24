@@ -211,15 +211,8 @@
 // maybe add throw across workspaces to this
 // maybe add cursor focus to this (requires hammerspoon)
 
-// quick app selection
-#define APP_SLACK    LS(LG(LC(LA(Z))))
-#define APP_CHROME   LS(LG(LC(LA(X))))
-#define APP_VSCODE   LS(LG(LC(LA(C))))
-#define APP_ITERM    LS(LG(LC(LA(V))))
-#define APP_OBSIDIAN LS(LG(LC(LA(B))))
-
 // deprecated categories (mostly hammerspoon stuff):
-    // hammerspoon: alerts, emoji finder
+    // hammerspoon: alerts, emoji finder, quick app shortcuts
 
 / {
     keymap {
@@ -256,7 +249,7 @@
             bindings = <
    &kp SZ_L_23 &kp SZ_L_13 &kp SZ_C_13 &kp SZ_R_13 &kp SZ_R_23      &kp DLL  &kp DWL  &kp DWR &kp DLR   &trans
    &kp SZ_U_12 &kp SZ_L_12 &kp SZ_MAX  &kp SZ_R_12 &kp SZ_D_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
-   &kp APP_SLACK &kp APP_CHROME &kp APP_VSCODE &kp APP_ITERM &kp APP_OBSIDIAN     &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
+   &trans      &trans      &trans      &trans      &trans           &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
                     	     &kp ESC &kp TAB  &kp BSPC   &trans   &trans    &trans
             >;
         };
