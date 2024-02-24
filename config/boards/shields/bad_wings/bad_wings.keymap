@@ -220,7 +220,7 @@
     &am LCTRL Q &kp W &kp F &kp P &kp B             &kp J &kp L  &kp U     &kp Y   &kp APOS
     &kp A       &kp R &kp S &kp T &kp G             &kp M &kp N  &kp E     &kp I   &kp O
     &am LALT Z  &kp X &kp C &kp D &kp V             &kp K &kp H  &kp COMMA &kp DOT &kp FSLH
-               &trans   &trans   &trans             &trans   &trans   &trans
+    &mt LGUI ESC &lt _LOWER TAB &st LSHIFT BSPC     &st RSHIFT SPACE &lt _RAISE ENTER &mt RGUI DEL
             >;
         };
 
