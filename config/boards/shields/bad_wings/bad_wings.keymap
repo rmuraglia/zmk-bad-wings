@@ -10,15 +10,10 @@
 #include <dt-bindings/zmk/outputs.h>
 
 // define layers
-#define _DEFAULT 0 // QWERTY
-#define _TARMAK1 1
-#define _TARMAK2 2
-#define _TARMAK3 3
-#define _TARMAK4 4
-#define _TARMAK5 5  // Colemak Dhm
-#define _LOWER 6
-#define _RAISE 7
-#define _STICKY 8
+#define _DEFAULT 0 // Colemak Dhm
+#define _LOWER 1
+#define _RAISE 2
+#define _STICKY 3
 
 // configure hold tap settings
 &lt {
@@ -226,69 +221,18 @@
 // deprecated categories (mostly hammerspoon stuff):
     // hammerspoon: alerts, emoji finder
 
-// TODO: diagrams for other layers
 / {
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            label = "QWERTY";
+            label = "BASE";
 // -----------------------------------------------------------------------------------------
-// |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
-// |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  |
-// |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |
-//      taps   | ESC | TAB | BSP |   | SPC | ENT  | DEL |
-//      holds  | GUI | LWR | SFT |   | SFT | RSE  | GUI |
-            bindings = <
-    &am LCTRL Q &kp W &kp E &kp R &kp T             &kp Y &kp U  &kp I     &kp O   &kp P    
-    &kp A       &kp S &kp D &kp F &kp G             &kp H &kp J  &kp K     &kp L   &kp APOS 
-    &am LALT Z  &kp X &kp C &kp V &kp B             &kp N &kp M  &kp COMMA &kp DOT &kp FSLH 
-    &mt LGUI ESC &lt _LOWER TAB &st LSHIFT BSPC     &st RSHIFT SPACE &lt _RAISE ENTER &mt RGUI DEL
-            >;
-        };
-
-        tarmak1_layer {
-            label = "TARMK1";
-            bindings = <
-    &am LCTRL Q &kp W &kp J &kp R &kp T             &kp Y &kp U  &kp I     &kp O   &kp P
-    &kp A       &kp S &kp D &kp F &kp G             &kp M &kp N  &kp E     &kp L   &kp APOS
-    &am LALT Z  &kp X &kp C &kp V &kp B             &kp K &kp H  &kp COMMA &kp DOT &kp FSLH
-               &trans   &trans   &trans             &trans   &trans   &trans
-            >;
-        };
-
-        tarmak2_layer {
-            label = "TARMK2";
-            bindings = <
-    &am LCTRL Q &kp W &kp F &kp R &kp B             &kp Y &kp U  &kp I     &kp O   &kp P
-    &kp A       &kp S &kp D &kp T &kp G             &kp M &kp N  &kp E     &kp L   &kp APOS
-    &am LALT Z  &kp X &kp C &kp J &kp V             &kp K &kp H  &kp COMMA &kp DOT &kp FSLH
-               &trans   &trans   &trans             &trans   &trans   &trans
-            >;
-        };
-
-        tarmak3_layer {
-            label = "TARMK3";
-            bindings = <
-    &am LCTRL Q &kp W &kp F &kp J &kp B             &kp Y &kp U  &kp I     &kp O   &kp P
-    &kp A       &kp R &kp S &kp T &kp G             &kp M &kp N  &kp E     &kp L   &kp APOS
-    &am LALT Z  &kp X &kp C &kp D &kp V             &kp K &kp H  &kp COMMA &kp DOT &kp FSLH
-               &trans   &trans   &trans             &trans   &trans   &trans
-            >;
-        };
-
-        tarmak4_layer {
-            label = "TARMK4";
-            bindings = <
-    &am LCTRL Q &kp W &kp F &kp P &kp B             &kp J &kp U  &kp I     &kp Y   &kp APOS
-    &kp A       &kp R &kp S &kp T &kp G             &kp M &kp N  &kp E     &kp L   &kp O
-    &am LALT Z  &kp X &kp C &kp D &kp V             &kp K &kp H  &kp COMMA &kp DOT &kp FSLH
-               &trans   &trans   &trans             &trans   &trans   &trans
-            >;
-        };
-
-        tarmak5_layer {
-            label = "TARMK5";
+//      |  Q  |  W  |  F  |  P  |  B  |            |  J  |  L  |  U  |  Y  |  '  |
+//      |  A  |  R  |  S  |  T  |  G  |            |  M  |  N  |  E  |  I  |  O  |
+//      |  Z  |  X  |  C  |  D  |  V  |            |  K  |  H  |  ,  |  .  |  /  |
+//           taps   | ESC | TAB | BSP |            | SPC | ENT | DEL |
+//           holds  | GUI | LWR | SFT |            | SFT | RSE | GUI |
             bindings = <
     &am LCTRL Q &kp W &kp F &kp P &kp B             &kp J &kp L  &kp U     &kp Y   &kp APOS
     &kp A       &kp R &kp S &kp T &kp G             &kp M &kp N  &kp E     &kp I   &kp O
@@ -322,8 +266,8 @@
             bindings = <
     &kp OS_LOCK  &none     &none  &none  &none      &to _DEFAULT  &none  &none  &none  &bt BT_CLR
     &none        &kp SNIP  &none  &none  &none      &bt BT_PRV &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT
-    &bootloader  &none     &none  &none  &none      &to _TARMAK1  &to _TARMAK2  &to _TARMAK3  &to _TARMAK4  &to _TARMAK5
-                                  &none  &none  &none       &none  &none  &none
+    &bootloader  &none     &none  &none  &none      &none  &none  &none  &none  &none
+                           &none  &none  &none      &none  &none  &none
             >;
         };
     };
