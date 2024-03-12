@@ -11,7 +11,7 @@
 #include <behaviors/mouse_keys.dtsi>
 
 // define layers
-#define _DEFAULT 0 // Colemak Dhm
+#define _DEFAULT 0  // Colemak Dhm
 #define _LOWER 1
 #define _RAISE 2
 #define _STICKY 3
@@ -75,10 +75,10 @@
 / {
     combos {
         compatible = "zmk,combos";
-        combo_leader {
+        combo_grave {
             timeout-ms = <COMBO_TERM>;
             key-positions = <0 1>;
-            bindings = <&sl _STICKY>;
+            bindings = <&kp GRAVE>;
         };
         combo_rbkt {
             timeout-ms = <COMBO_TERM>;
@@ -105,10 +105,10 @@
             key-positions = <12 13>;
             bindings = <&kp LPAR>;
         };
-        combo_grave {
+        combo_leader {
             timeout-ms = <COMBO_TERM>;
             key-positions = <20 21>;
-            bindings = <&kp GRAVE>;
+            bindings = <&sl _STICKY>;
         };
         combo_rbrc {
             timeout-ms = <COMBO_TERM>;
@@ -186,9 +186,11 @@
 #define DLL LC(U)      // delete to beginning of line
 #define DLR LC(K)      // delete to end of line
 
-// window management
+// window management (OS native)
 #define WK_L LC(LEFT)  // go to workspace left
 #define WK_R LC(RIGHT) // go to workspace right
+
+// window management (via rectangle)
 #define SZ_L_13 LA(LC(D))      // resize window left 1/3
 #define SZ_C_13 LA(LC(F))      // resize window center 1/3
 #define SZ_R_13 LA(LC(G))      // resize window right 1/3
@@ -199,8 +201,15 @@
 #define SZ_U_12 LA(LC(UP))     // resize window up 1/2
 #define SZ_D_12 LA(LC(DOWN))   // resize window down 1/2
 #define SZ_MAX  LA(LC(ENTER))  // resize window maximize
-// maybe add throw across workspaces to this
-// maybe add cursor focus to this (requires hammerspoon)
+#define THRW_L LG(LA(LC(LEFT)))   // throw to workspace left
+#define THRW_R LG(LA(LC(RIGHT)))  // throw to workspace right
+
+// cursor warp (via hammerspoon)
+#define FCS_L LS(LG(LA(LC(L))))  // warp cursor to display left
+#define FCS_R LS(LG(LA(LC(R))))  // warp cursor to display right
+
+// cursor warp (via warpd)
+#define WARPD LG(LA(X))  // hint mode
 
 // deprecated categories (mostly hammerspoon stuff):
     // hammerspoon: alerts, emoji finder, quick app shortcuts
@@ -221,7 +230,7 @@
     &am LCTRL Q &kp W &kp F &kp P &kp B             &kp J &kp L  &kp U     &kp Y   &kp APOS
     &kp A       &kp R &kp S &kp T &kp G             &kp M &kp N  &kp E     &kp I   &kp O
     &am LALT Z  &kp X &kp C &kp D &kp V             &kp K &kp H  &kp COMMA &kp DOT &kp FSLH
-               &trans   &trans   &trans             &trans   &trans   &trans
+    &mt LGUI ESC &lt _LOWER TAB &st LSHIFT BSPC     &st RSHIFT SPACE &lt _RAISE ENTER &mt RGUI DEL
             >;
         };
 
@@ -239,8 +248,8 @@
             label = "EDITOR";
             bindings = <
    &kp SZ_L_23 &kp SZ_L_13 &kp SZ_C_13 &kp SZ_R_13 &kp SZ_R_23      &kp DLL  &kp DWL  &kp DWR &kp DLR   &trans
-   &kp SZ_U_12 &kp SZ_L_12 &kp SZ_MAX  &kp SZ_R_12 &kp SZ_D_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
-   &trans      &trans      &trans      &trans      &trans           &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
+   &kp SZ_L_12 &kp SZ_D_12 &kp SZ_MAX  &kp SZ_U_12 &kp SZ_R_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
+   &kp THRW_L  &kp FCS_L   &kp WARPD   &kp FCS_R   &kp THRW_R       &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
                     	     &kp ESC &kp TAB  &kp BSPC   &trans   &trans    &trans
             >;
         };
@@ -248,7 +257,7 @@
         sticky_layer {
             label = "LEADER";
             bindings = <
-    &kp OS_LOCK  &none     &none  &none  &none      &to _DEFAULT  &none  &none  &none  &bt BT_CLR
+    &kp OS_LOCK  &none     &none  &none  &none      &none  &none  &none  &none  &bt BT_CLR
     &none        &kp SNIP  &none  &none  &none      &bt BT_PRV &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT
     &bootloader  &none     &none  &none  &none      &none  &none  &none  &none  &none
                            &none  &none  &none      &none  &none  &none
