@@ -261,7 +261,7 @@
             bindings = <
    &kp SZ_L_23 &kp SZ_L_13 &kp SZ_C_13 &kp SZ_R_13 &kp SZ_R_23      &kp DLL  &kp DWL  &kp DWR &kp DLR   &kp DEL
    &kp SZ_L_12 &kp SZ_D_12 &kp SZ_MAX  &kp SZ_U_12 &kp SZ_R_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &kp BSPC
-   &kp THRW_L  &kp WK_L    &kp EXPOSE  &kp WK_R    &kp THRW_R       &kp MLL  &kp MWL  &kp MWR &kp MLR   &none
+   &kp THRW_L  &kp WK_L    &kp EXPOSE  &kp WK_R    &kp THRW_R       &kp MLL  &kp MWL  &kp MWR &kp MLR   &kp LSHIFT
                                 &none &trans  &trans                &trans   &trans    &none
             >;
         };
