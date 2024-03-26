@@ -172,8 +172,13 @@
 
         combo_enter {
             timeout-ms = <COMBO_TERM>;
-            key-positions = <15 16>;
+            key-positions = <16 18>;
             bindings = <&kp ENTER>;
+        };
+        combo_tab {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <11 13>;
+            bindings = <&kp TAB>;
         };
     };
 };
@@ -194,6 +199,8 @@
 #define DWR LA(DEL)    // delete one word right
 #define DLL LC(U)      // delete to beginning of line
 #define DLR LC(K)      // delete to end of line
+#define BOD LG(UP)     // beginning of document
+#define EOD LG(DOWN)   // end of document
 
 // window management (OS native)
 #define WK_L LC(LEFT)  // go to workspace left
@@ -236,13 +243,13 @@
 //      |  Q  |  W  |  F  |  P  |  B  |            |  J  |  L  |  U  |  Y  |  '  |
 //      |  A  |  R  |  S  |  T  |  G  |            |  M  |  N  |  E  |  I  |  O  |
 //      |  Z  |  X  |  C  |  D  |  V  |            |  K  |  H  |  ,  |  .  |  /  |
-//           taps         | ESC | TAB |            | SPC | WARPD |
+//           taps         | ESC | BSP |            | SPC | WARPD |
 //           holds        | LWR | GUI |            | SFT |  RSE  |
             bindings = <
     &am LCTRL Q &kp W &kp F &kp P &kp B             &kp J &kp L  &kp U     &kp Y   &kp APOS
     &kp A       &kp R &kp S &kp T &kp G             &kp M &kp N  &kp E     &kp I   &kp O
     &am LALT Z  &kp X &kp C &kp D &kp V             &kp K &kp H  &kp COMMA &kp DOT &kp FSLH
-    &none     &lt _LOWER ESC &mt LGUI TAB     &st RSHIFT SPACE &lt _RAISE WARPD &none
+    &none     &lt _LOWER ESC &mt LGUI BSPC     &st RSHIFT SPACE &lt _RAISE WARPD &none
             >;
         };
 
@@ -259,9 +266,9 @@
         raise_layer {
             label = "EDITOR";
             bindings = <
-   &kp SZ_L_23 &kp SZ_L_13 &kp SZ_C_13 &kp SZ_R_13 &kp SZ_R_23      &kp DLL  &kp DWL  &kp DWR &kp DLR   &kp DEL
-   &kp SZ_L_12 &kp SZ_D_12 &kp SZ_MAX  &kp SZ_U_12 &kp SZ_R_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &kp BSPC
-   &kp THRW_L  &kp WK_L    &kp EXPOSE  &kp WK_R    &kp THRW_R       &kp MLL  &kp MWL  &kp MWR &kp MLR   &kp LSHIFT
+   &kp SZ_L_23 &kp SZ_L_13 &kp SZ_C_13 &kp SZ_R_13 &kp SZ_R_23      &kp DLL  &kp DWL  &kp DWR &kp DLR   &kp BOD
+   &kp SZ_L_12 &kp SZ_D_12 &kp SZ_MAX  &kp SZ_U_12 &kp SZ_R_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &kp LSHIFT
+   &kp THRW_L  &kp WK_L    &kp EXPOSE  &kp WK_R    &kp THRW_R       &kp MLL  &kp MWL  &kp MWR &kp MLR   &kp EOD
                                 &none &trans  &trans                &trans   &trans    &none
             >;
         };
