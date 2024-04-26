@@ -23,7 +23,7 @@
         status = "okay";
         dr-gpios = <&xiao_d 5 (GPIO_ACTIVE_HIGH)>;
 
-        sensitivity = "1x";
+        sensitivity = "4x";
         sleep;
         no-taps;
         };
