@@ -246,9 +246,9 @@
         raise_layer {
             label = "EDITOR";
             bindings = <
-   &kp SZ_L_23 &kp SZ_L_13 &kp SZ_C_13 &kp SZ_R_13 &kp SZ_R_23      &kp DLL  &kp DWL  &kp DWR &kp DLR   &trans
-   &kp SZ_L_12 &kp SZ_D_12 &kp SZ_MAX  &kp SZ_U_12 &kp SZ_R_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
-   &kp THRW_L  &kp FCS_L   &kp WARPD   &kp FCS_R   &kp THRW_R       &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
+   &kp SZ_L_23 &kp SZ_L_13 &kp SZ_C_13 &kp SZ_R_13 &kp SZ_R_23      &kp DLL  &kp DWL  &kp DWR &kp DLR   &mkp LCLK
+   &kp SZ_L_12 &kp SZ_D_12 &kp SZ_MAX  &kp SZ_U_12 &kp SZ_R_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &mkp MCLK
+   &kp THRW_L  &kp FCS_L   &kp WARPD   &kp FCS_R   &kp THRW_R       &kp MLL  &kp MWL  &kp MWR &kp MLR   &mkp RCLK
                     	     &kp ESC &kp TAB  &kp BSPC   &trans   &trans    &trans
             >;
         };
